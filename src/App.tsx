@@ -14,12 +14,14 @@ const App = () => (
       <Toaster />
       <Sonner />
       
-        <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           {/* /index.html 直打ち対策 */}
           <Route path="/index.html" element={<Navigate to="/" replace />} />
-          {/* /public/lp リダイレクト対策 */}
-          <Route path="/public/lp" element={<Navigate to="/" replace />} />
+          {/* /public/lp 旧パスからのリダイレクト対策 */}
+          <Route path="/public/lp" element={<Navigate to="/public/lp_1" replace />} />
+          {/* /public/lp_1 直アクセスでも同一ページを表示 */}
+          <Route path="/public/lp_1" element={<Index />} />
 
           <Route path="/" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
